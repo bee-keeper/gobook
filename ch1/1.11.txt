@@ -1,0 +1,7 @@
+How does the program behave if a website doesn't respond?
+
+Get https://<>: dial tcp 111.161.64.40:443: i/o timeout
+30.00s elapsed
+
+Get https://dqddddddd.com: dial tcp: lookup dqddddddd.com: no such host
+0.03s elapsed
