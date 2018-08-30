@@ -22,6 +22,11 @@ import (
 const (
 	greenIndex = 0 // first color in palette
 	blackIndex = 1 // next color in palette
+
+	res     = 0.001 // angular resolution
+	size    = 100   // image canvas covers [-size..+size]
+	nframes = 64    // number of animation frames
+	delay   = 8     // delay between frames in 10ms units
 )
 
 var palette = []color.Color{color.Black, color.RGBA{0, 255, 0, 1}}
@@ -48,12 +53,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func lissajous(out io.Writer, cycles float64) {
-	const (
-		res     = 0.001 // angular resolution
-		size    = 100   // image canvas covers [-size..+size]
-		nframes = 64    // number of animation frames
-		delay   = 8     // delay between frames in 10ms units
-	)
 	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
 	anim := gif.GIF{LoopCount: nframes}
 	phase := 0.0 // phase difference
